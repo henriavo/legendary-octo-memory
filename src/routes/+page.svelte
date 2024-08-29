@@ -5,6 +5,7 @@
 	let screener = JSON.parse(screenerJson);
 	let questions = screener.content.sections[0].questions;
 	let answers = screener.content.sections[0].answers;
+	let prompt = screener.content.sections[0].title;
 	// extract the display_name
 	let display_name = screener.content.display_name;
 
@@ -31,7 +32,8 @@
 <main>
 	<h1>{display_name}</h1>
 	{#if !isCompleted}
-		<h2>{questions[currentQuestionIndex].title}</h2>
+		<h3>{prompt}</h3>
+		<p>{questions[currentQuestionIndex].title}</p>
 
 		<ul>
 			{#each answers as answer}
