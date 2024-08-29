@@ -5,6 +5,7 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
+		"run": "node build",
 		"preview": "vite preview",
 		"test": "playwright test",
 		"lint": "prettier --check . && eslint .",
