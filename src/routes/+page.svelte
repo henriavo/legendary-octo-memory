@@ -9,22 +9,28 @@
 	let display_name = screener.content.display_name;
 
 	let currentQuestionIndex = 0;
+	let isCompleted = false;
 
 	function nextQuestion() {
 		if (currentQuestionIndex < questions.length - 1) {
 			currentQuestionIndex += 1;
-		} 
+		} else {
+			isCompleted = true;
+			// Send the responses to the server
+		}
 	}
 
 	function selectAnswer(answer) {
 		nextQuestion();
 	}
 
+	// Calculate the width of the progress bar
+	$: progressWidth = (currentQuestionIndex / questions.length) * 100;
 </script>
 
 <main>
 	<h1>{display_name}</h1>
-
+	{#if !isCompleted}
 		<h2>{questions[currentQuestionIndex].title}</h2>
 
 		<ul>
@@ -37,7 +43,25 @@
 
 		<br />
 		<p>{currentQuestionIndex + 1} out of {questions.length}</p>
-
+		<div class="progress-bar">
+			<div class="progress-bar-inner" style="width: {progressWidth}%;"></div>
+		</div>
+	{:else}
+		<h2>Thank you for participating in the questionnaire!</h2>
+		<p>Your responses have been recorded.</p>
+	{/if}
 </main>
 
-
+<style>
+	.progress-bar {
+		width: 100%;
+		background-color: #f3f3f3;
+		border-radius: 5px;
+		overflow: hidden;
+		margin-bottom: 20px;
+	}
+	.progress-bar-inner {
+		height: 20px;
+		background-color: #4caf50;
+	}
+</style>
