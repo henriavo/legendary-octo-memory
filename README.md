@@ -1,38 +1,33 @@
-# create-svelte
+# Link to to the hosted application (if there is one)
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+[Visit the live application](https://jellyfish-app-vsvt3.ondigitalocean.app/)
 
-## Creating a project
+# Instructions for running the code locally (if not hosted)
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
 ```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
+cd my-app
+npm install
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+# Description of the problem and solution
 
-To create a production version of your app:
+Build both front end and back end to a standardized clinical assessment in a multiple-choice questionnaire format that determines symptom severity for several disorders. 
 
-```bash
-npm run build
-```
+Leveraging my recent experience with sveltkit framework. A frontend web interface  prompts the user one question at a time and will subit all responses to the included backend API. 
 
-You can preview the production build with `npm run preview`.
+# Reasoning behind your technical choices
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+# Describe how you would deploy this as a true production app on the platform of your choice: 
+
+- How would ensure the application is highly available and performs well?
+
+- How would you secure it?
+
+- What would you add to make it easier to troubleshoot problems while it is running live?
+
+- Trade-offs you might have made, anything you left out, or what you might do differently if you were to spend additional time on the project
+
+# Link to other code you're particularly proud of
+
+# Link to your resume or public profile
