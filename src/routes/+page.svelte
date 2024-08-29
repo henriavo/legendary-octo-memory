@@ -5,24 +5,48 @@
 	let screener = JSON.parse(screenerJson);
 	let questions = screener.content.sections[0].questions;
 	let answers = screener.content.sections[0].answers;
-	let prompt = screener.content.sections[0].title;
-	// extract the display_name
 	let display_name = screener.content.display_name;
-
+	let prompt = screener.content.sections[0].title;
 	let currentQuestionIndex = 0;
 	let isCompleted = false;
+	let userResponses = [];
 
-	function nextQuestion() {
+	async function nextQuestion() {
 		if (currentQuestionIndex < questions.length - 1) {
 			currentQuestionIndex += 1;
 		} else {
 			isCompleted = true;
-			// Send the responses to the server
+			console.log('User responses:');
+			console.log(userResponses);
+			await submitResponses();
 		}
 	}
 
 	function selectAnswer(answer) {
+		userResponses.push({
+			question_id: questions[currentQuestionIndex].question_id,
+			value: answer.value
+		});
 		nextQuestion();
+	}
+
+	async function submitResponses() {
+		try {
+			const response = await fetch('/api/v1/assesment', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({ answers: userResponses })
+			});
+			if (!response.ok) {
+				throw new Error('Network response was not ok');
+			}
+			const data = await response.json();
+			console.log('Success:', data);
+		} catch (error) {
+			console.error('Error:', error);
+		}
 	}
 
 	// Calculate the width of the progress bar

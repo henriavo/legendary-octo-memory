@@ -16,7 +16,7 @@ function caculateScores(answers) {
 
 	for (let i = 0; i < answers.length; i++) {
 		let obj = answers[i];
-		//patient answers
+		// console.log('PATIENT ANSWERS::: ');
 		// console.log('question_id=' + obj.question_id);
 		// console.log('value=' + obj.value);
 
@@ -31,7 +31,6 @@ function caculateScores(answers) {
 	console.log(totalScores);
 	return totalScores;
 }
-
 
 function translateScoresToResults(totalScores) {
 	let response = {
