@@ -58,6 +58,8 @@ The frontend is very light-weight and does not use any frontend framework or cus
 
 5. More logging is missing. Carefully consider what items will be useful to log in order to make debugging in the future faster. 
 
+6. Support for different screen sizes is missing. Frontend should be able to dyanmically adjust for users accessing website from desktop or mobile. 
+
 # Link to other code you're particularly proud of
 
 [Github link](https://github.com/henriavo/cuddly-octo) This is a full stack application with MongoDB persistance layer and hosted on digitalocean. I designed the frontend using Boostrap. I designed the database schema layer for photo storage, user registration, and user authentication. Passwords are stored encrypted. Server side rendering, asynchronough API requests from browser, along with asynchronough DB reqeusts are also implemented. All DB requests are made server side only for security reasons. DB credentials are stored on server as environment variables. Photo uploads will upload files to aws S3. S3 bucket policy does not allow public access, instead files are uploaded and downloaded using secure pre signed URLs. 
