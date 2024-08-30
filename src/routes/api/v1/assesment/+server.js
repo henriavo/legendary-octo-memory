@@ -63,7 +63,7 @@ function translateScoresToResults(totalScores) {
 	return response;
 }
 
-// a constant. in theory this would be accessed from a database
+// ideally this would be fetched from an API
 const questionToDomainMapping = [
 	{
 		question_id: 'question_a',
